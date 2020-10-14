@@ -34,6 +34,6 @@ df['recipe_urls'] = "https://www.jamieoliver.com" + df['recipe_urls'].astype('st
 # Appending 'df' to a main DataFrame 'init_urls_df'
 recipe_url_df = recipe_url_df.append(df).copy()
 
-recipe_url_df.to_csv(r"/Users/Jack/Documents/ML/Projects/Whatscooking/input/recipe_urls.csv", 
+recipe_url_df.to_csv(r"/Users/Jack/Documents/ML/Projects/Whatscooking-/input/recipe_urls.csv", 
 sep="\t", index=False)
 

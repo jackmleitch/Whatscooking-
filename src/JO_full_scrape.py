@@ -27,5 +27,5 @@ temp = temp[columns]
 
 JamieOliver_df = temp
 
-JamieOliver_df.to_csv(r"/Users/Jack/Documents/ML/Projects/Whatscooking/input/JamieOliver_full.csv", index=False)
+JamieOliver_df.to_csv(r"/Users/Jack/Documents/ML/Projects/Whatscooking-/input/JamieOliver_full.csv", index=False)
 
