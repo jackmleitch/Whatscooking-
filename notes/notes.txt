@@ -1,0 +1,5 @@
+https://github.com/kulsoom-abdullah/kulsoom-abdullah.github.io/tree/master/AWS-lambda-implementation/model_implementation
+
+https://htmlpreview.github.io/?https://github.com/kulsoom-abdullah/kulsoom-abdullah.github.io/blob/master/AWS-lambda-implementation/model_implementation/recipe%20binary%20classification/recipe%20binary%20classification.html#Words-to-Remove
+
+https://medium.com/@armandj.olivares/building-nlp-content-based-recommender-systems-b104a709c042
