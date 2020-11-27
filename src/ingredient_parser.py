@@ -71,14 +71,13 @@ def ingredient_parser(ingreds):
 
 if __name__ == "__main__":
     recipe_df = pd.read_csv("/Users/Jack/Documents/Projects/Whatscooking-/input/df_recipes.csv")
-    recipe_df['ingredients'] = recipe_df['ingredients'].apply(lambda x: ingredient_parser(x))
-    df = recipe_df[['recipe_name', 'ingredients']]
+    recipe_df['ingredients_parsed'] = recipe_df['ingredients'].apply(lambda x: ingredient_parser(x))
+    df = recipe_df[['recipe_name', 'ingredients_parsed', 'ingredients', 'recipe_urls']]
     df = recipe_df.dropna()
 
     # remove - Allrecipes.com from end of every recipe title 
     m = df.recipe_name.str.endswith('Recipe - Allrecipes.com')
     df['recipe_name'].loc[m] = df.recipe_name.loc[m].str[:-23]        
-
     df.to_csv(r"/Users/Jack/Documents/Projects/Whatscooking-/input/df_parsed.csv", index=False)
 
     # vocabulary = nltk.FreqDist()
