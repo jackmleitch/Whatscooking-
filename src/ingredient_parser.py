@@ -10,6 +10,7 @@ import unidecode
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import wordnet
 from collections import Counter
+import config 
 
 # Weigths and measures are words that will not add value to the model. I got these standard words from 
 # https://en.wikibooks.org/wiki/Cookbook:Units_of_measurement
@@ -70,7 +71,7 @@ def ingredient_parser(ingreds):
     return ingred_list
 
 if __name__ == "__main__":
-    recipe_df = pd.read_csv("/Users/Jack/Documents/Projects/Whatscooking-/input/df_recipes.csv")
+    recipe_df = pd.read_csv(config.RECIPES_PATH)
     recipe_df['ingredients_parsed'] = recipe_df['ingredients'].apply(lambda x: ingredient_parser(x))
     df = recipe_df[['recipe_name', 'ingredients_parsed', 'ingredients', 'recipe_urls']]
     df = recipe_df.dropna()
@@ -78,7 +79,7 @@ if __name__ == "__main__":
     # remove - Allrecipes.com from end of every recipe title 
     m = df.recipe_name.str.endswith('Recipe - Allrecipes.com')
     df['recipe_name'].loc[m] = df.recipe_name.loc[m].str[:-23]        
-    df.to_csv(r"/Users/Jack/Documents/Projects/Whatscooking-/input/df_parsed.csv", index=False)
+    df.to_csv(config.PARSED_PATH, index=False)
 
     # vocabulary = nltk.FreqDist()
     # for ingredients in recipe_df['ingredients']:
