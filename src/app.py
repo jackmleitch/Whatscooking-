@@ -1,13 +1,11 @@
 from flask import Flask, jsonify, request, render_template
 from flask_jsonpify import jsonpify
-import json
+import json, requests, pickle
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity  
 from ingredient_parser import ingredient_parser
-import pickle
-import config 
-import rec_sys
+import config, rec_sys
 
 app = Flask(__name__)
 
@@ -20,7 +18,7 @@ HELLO_HTML = """
          <h1>Welcome to my api: Whatscooking!</h1>
          <p>Please add some ingredients to the url to receive recipe recommendations.
             You can do this by appending "/recipe?ingredients= Pasta Tomato ..." to the current url.
-         <br>Click <a href="/recipe?ingredients= pasta tomato onion">here</a> for an example.
+         <br>Click <a href="/recipe?ingredients= pasta tomato onion">here</a> for an example when using the ingredients: pasta, tomato and onion.
      </body></html>
      """
 
@@ -45,4 +43,9 @@ def recommend_recipe():
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
 
+
+
 # http://127.0.0.1:5000/recipe?ingredients=pasta
+
+# use ipconfig getifaddr en0 in terminal (ipconfig if you are on windows, ip a if on linux) 
+# to find intenal (LAN) IP address. Then on any devide on network you can use server.

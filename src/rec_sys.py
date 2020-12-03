@@ -73,7 +73,7 @@ def RecSys(ingredients, N=5):
 
 if __name__ == "__main__":
     # test ingredients
-    test_ingredients = "pasta"
+    test_ingredients = "pasta, tomato, onion"
     recs = RecSys(test_ingredients)
     print(recs.score)
 
