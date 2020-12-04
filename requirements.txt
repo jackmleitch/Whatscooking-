@@ -26,7 +26,6 @@ lxml==4.5.2
 MarkupSafe==1.1.1
 mf2py==1.1.2
 mistune==0.8.4
-mkl==2019.0
 nltk==3.5
 numpy==1.19.4
 packaging==20.4
