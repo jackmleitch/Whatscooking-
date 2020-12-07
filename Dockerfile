@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
     sudo \
     && rm -rf /var/lib/apt/lists/*
 
+# Set the working directory and copy all of the project files to it 
 WORKDIR /whatscooking 
 ADD . /whatscooking
 
