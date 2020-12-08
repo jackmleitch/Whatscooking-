@@ -12,6 +12,14 @@ docker run -p 5000:5000 -d whatscooking:api
 
 ```
 
+I have two blogs on this project also and they can be found here:
+
+https://medium.com/r?url=https%3A%2F%2Fjackmleitch.medium.com%2Fusing-beautifulsoup-to-help-make-beautiful-soups-d2670a1d1d52
+
+https://towardsdatascience.com/building-a-recipe-recommendation-api-using-scikit-learn-nltk-docker-flask-and-heroku-bfc6c4bdd2d4
+
+
+
 In the input folder you will find to csv files:
 * recipe_urls.csv: This contains all of the urls for the recipes on the Jamie Oliver website (https://www.jamieoliver.com/)
 * JamieOliver_full.csv: For each url in the previous csv, this csv contains recipe ingedients, title, serving size etc etc.
