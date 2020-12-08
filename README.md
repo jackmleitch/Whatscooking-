@@ -1,6 +1,17 @@
 ## Cooking data science project. 
 ## Given a list of ingredients, what are different recipes we can make?
 
+Given a list of ingredients, what are different recipes I can make? That is, what recipes can I make with the food I have in my apartment?
+ 
+
+You can run this model yourself using my API, in your terminal put:
+```
+docker pull jackmleitch/whatscooking:API
+
+docker run -p 5000:5000 -d whatscooking:api
+
+```
+
 In the input folder you will find to csv files:
 * recipe_urls.csv: This contains all of the urls for the recipes on the Jamie Oliver website (https://www.jamieoliver.com/)
 * JamieOliver_full.csv: For each url in the previous csv, this csv contains recipe ingedients, title, serving size etc etc.
