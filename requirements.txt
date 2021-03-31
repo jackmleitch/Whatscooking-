@@ -22,7 +22,7 @@ jstyleson==0.0.2
 jupyter==1.0.0
 jupyter-core==4.6.3
 language-tags==1.0.0
-lxml==4.5.2
+lxml==4.6.3
 MarkupSafe==1.1.1
 mf2py==1.1.2
 mistune==0.8.4
