@@ -24,7 +24,7 @@ I have three blogs on this project and they can be found here:
 * [Updated Model](https://towardsdatascience.com/building-a-recipe-recommendation-system-297c229dda7b)
 
 ![alt text](./input/flowchart.png)
-<img src="./input/flowchart.png" width="100" height="100">
+<img src="./input/flowchart.png" width="400" height="272">
 
 ## Web Scraping
 Built a web scraper using [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) to scrape over 4000 food recipes from [All Recipes](allrecipes.com) and [Jamie Oliver](jamieoliver.com). With each recipe, I got the following:
