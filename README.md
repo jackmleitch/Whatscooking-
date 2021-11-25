@@ -24,7 +24,7 @@ I have three blogs on this project and they can be found here:
 * [Updated Model](https://towardsdatascience.com/building-a-recipe-recommendation-system-297c229dda7b)
 
 <p align="center">
-<img src="./input/flowchart.png" width="800" height="545">
+<img src="./input/flowchart.png" width="700" height="477">
 </p>
 
 ## Web Scraping
@@ -36,26 +36,13 @@ Built a web scraper using [Beautiful Soup](https://www.crummy.com/software/Beaut
 * Rating
 
 ## Data Cleaning
-After scraping the data, I needed to clean it up so that it was usable for my model. I made the following changes before creating word embeddings:
 
-Parsed numeric data out of salary
-Made columns for employer provided salary and hourly wages
-Removed rows without salary
-Parsed rating out of company text
-Made a new column for company state
-Added a column for if the job was at the company’s headquarters
-Transformed founded date into age of company
-Made columns for if different skills were listed in the job description:
-Python
-R
-Excel
-AWS
-Spark
-Column for simplified job title and Seniority
-Column for description length
-
-## EDA
-
+After scraping the data, we needed to parse the ingredients to remove redundant information that would not help distinguish recipes. The ingredient parser does the following:
+* Lemmatize words to ensure we remove all versions of words, e.g. both pounds and pound
+* Removed stopwords 
+* Removed cooking measures, e.g. pounds and lbs
+* Removed common household items such as oil and butter 
+ 
 ## Model Building
 
 ## Productionization
