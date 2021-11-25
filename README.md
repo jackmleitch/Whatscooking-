@@ -23,8 +23,9 @@ I have three blogs on this project and they can be found here:
 * [Initital Model](https://towardsdatascience.com/building-a-recipe-recommendation-api-using-scikit-learn-nltk-docker-flask-and-heroku-bfc6c4bdd2d4)
 * [Updated Model](https://towardsdatascience.com/building-a-recipe-recommendation-system-297c229dda7b)
 
-![alt text](./input/flowchart.png)
-<img src="./input/flowchart.png" width="400" height="272">
+<p align="center">
+<img src="./input/flowchart.png" width="800" height="545">
+</p>
 
 ## Web Scraping
 Built a web scraper using [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) to scrape over 4000 food recipes from [All Recipes](allrecipes.com) and [Jamie Oliver](jamieoliver.com). With each recipe, I got the following:
