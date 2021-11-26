@@ -3,7 +3,7 @@
 * Scraped over 4000 recipes from [All Recipes](allrecipes.com) and [Jamie Oliver](jamieoliver.com) using python and beautiful soup.
 * Parsed recipe ingredients and created word embeddings using Word2Vec and TF-IDF.
 * Created a recipe recommendation system using cosine similarity to measure Euclidean distance between the word embeddings of recipe ingredients.
-* Built a client-facing API using flask, and a user-friendly app with Streamlit.
+* Built a client-facing API using flask, and a user-friendly [app](https://share.streamlit.io/jackmleitch/whatscooking-deployment/streamlit.py) with Streamlit.
 
 ## Motivation
 Cooking is a hobby for some and a major problem for others. However, you can always use a helping hand for cooking. Being a student, it is always a difficult decision to decide what to eat for lunch or dinner. Sometimes faced with limited items in the kitchen, it is always a challenge to decide what to cook for a meal. This inspired me to create a system that can recommend recipes based on ingredient suggestions.
@@ -24,11 +24,11 @@ I have three blogs on this project and they can be found here:
 * [Updated Model](https://towardsdatascience.com/building-a-recipe-recommendation-system-297c229dda7b)
 
 <p align="center">
-<img src="./input/flowchart.png" width="700" height="477">
+<img src="./input/flowchart.png" width="513" height="350">
 </p>
 
 ## Web Scraping
-Built a **web scraper** using [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) to scrape over 4000 food recipes from [All Recipes](allrecipes.com) and [Jamie Oliver](jamieoliver.com). With each recipe, I got the following:
+Built a **web scraper** using [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) to scrape over 4000 food recipes from [All Recipes](allrecipes.com) and [Jamie Oliver](jamieoliver.com). For each recipe, I retrieved the following:
 
 * Recipe name 
 * Ingredients
@@ -36,20 +36,19 @@ Built a **web scraper** using [Beautiful Soup](https://www.crummy.com/software/B
 * Rating
 
 ## Data Cleaning
-
 After scraping the data, we needed to parse the ingredients to remove redundant information that would not help distinguish recipes. The **ingredient parser** does the following:
 * Lemmatize words to ensure we remove all versions of words, e.g. both pounds and pound
-* Removed stopwords 
+* Removed stopwords 
 * Removed cooking measures, e.g. pounds and lbs
-* Removed common household items, such as oil and butter 
+* Removed common household items, such as oil and butter 
 * Some standard NLP preprocessing: getting rid of punctuation, removing accents, making everything lowercase, getting rid of Unicode, etc.
- 
+ 
 ## Model Building
-I fed my collection of indiviual ingredients into a **continuous bag of words Word2Vec** neural network to produce word embeddings. Word2Vec was used because I wanted the text representations to capture distributional similarities between words. In the context of recipe ingredients, Word2vec allowed me to capture similarities between recipe ingredients that are commonly used together. For example, mozzarella cheese which is commonly used when making pizza is most similar to other cheeses and pizza-related ingredients. 
+I fed my collection of individual ingredients into a **continuous bag of words Word2Vec** neural network to produce word embeddings. Word2Vec was used because I wanted the text representations to capture distributional similarities between words. In the context of recipe ingredients, Word2vec allowed me to capture similarities between recipe ingredients that are commonly used together. For example, mozzarella cheese which is commonly used when making pizza is most similar to other cheeses and pizza-related ingredients.
 
-In order to build the recipe recommendation, I needed to represent each ingredient list as a single embedding as this would then allow me to calculate corresponding similarities. **TF-IDF** was used to aggregate embeddings (as opposed to simple averaging) as it gives us better distinguishing power between recipes by favouring unique ingredients.
+In order to build the recipe recommendation system, I needed to represent each ingredient list as a single embedding as this would then allow me to calculate corresponding similarities. **TF-IDF** was used to aggregate embeddings (as opposed to simple averaging) as it gives us better distinguishing power between recipes by favoring unique ingredients.
 
-The reccomendation system was built using a **content-based filtering** approach which enables us to recommend recipes to people based on the ingredients the user provides. To measure the similarity between user given ingredients and recipes **cosine similarity** was used. Spacy and KNN were also trialled but cosine similarity won in terms of performance (it was also the most simple approach).
+The recommendation system was built using a **content-based filtering** approach which enables us to recommend recipes to people based on the ingredients the user provides. To measure the similarity between user-given ingredients and recipes **cosine similarity** was used. Spacy and KNN were also trialed but cosine similarity won in terms of performance (it was also the most simple approach). The recommendation model computes the cosine similarity between the inputted ingredient list and all recipes in the corpus. It then outputs the top-N most similar recipes, along with their ingredients and URLs, for the user to choose from.
 
 ## Productionization
 In this step, I built a **Flask API** endpoint that was hosted on a local webserver. The API endpoint takes in a request with a list of ingredients and returns the top 5 recommended recipes (along with URLs to the recipe webpage).
