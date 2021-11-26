@@ -28,7 +28,7 @@ I have three blogs on this project and they can be found here:
 </p>
 
 ## Web Scraping
-Built a web scraper using [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) to scrape over 4000 food recipes from [All Recipes](allrecipes.com) and [Jamie Oliver](jamieoliver.com). With each recipe, I got the following:
+Built a **web scraper** using [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) to scrape over 4000 food recipes from [All Recipes](allrecipes.com) and [Jamie Oliver](jamieoliver.com). With each recipe, I got the following:
 
 * Recipe name 
 * Ingredients
@@ -37,12 +37,25 @@ Built a web scraper using [Beautiful Soup](https://www.crummy.com/software/Beaut
 
 ## Data Cleaning
 
-After scraping the data, we needed to parse the ingredients to remove redundant information that would not help distinguish recipes. The ingredient parser does the following:
+After scraping the data, we needed to parse the ingredients to remove redundant information that would not help distinguish recipes. The **ingredient parser** does the following:
 * Lemmatize words to ensure we remove all versions of words, e.g. both pounds and pound
 * Removed stopwords 
 * Removed cooking measures, e.g. pounds and lbs
-* Removed common household items such as oil and butter 
+* Removed common household items, such as oil and butter 
+* Some standard NLP preprocessing: getting rid of punctuation, removing accents, making everything lowercase, getting rid of Unicode, etc.
  
 ## Model Building
+I fed my collection of indiviual ingredients into a **continuous bag of words Word2Vec** neural network to produce word embeddings. Word2Vec was used because I wanted the text representations to capture distributional similarities between words. In the context of recipe ingredients, Word2vec allowed me to capture similarities between recipe ingredients that are commonly used together. For example, mozzarella cheese which is commonly used when making pizza is most similar to other cheeses and pizza-related ingredients. 
+
+In order to build the recipe recommendation, I needed to represent each ingredient list as a single embedding as this would then allow me to calculate corresponding similarities. **TF-IDF** was used to aggregate embeddings (as opposed to simple averaging) as it gives us better distinguishing power between recipes by favouring unique ingredients.
+
+The reccomendation system was built using a **content-based filtering** approach which enables us to recommend recipes to people based on the ingredients the user provides. To measure the similarity between user given ingredients and recipes **cosine similarity** was used. Spacy and KNN were also trialled but cosine similarity won in terms of performance (it was also the most simple approach).
 
 ## Productionization
+In this step, I built a **Flask API** endpoint that was hosted on a local webserver. The API endpoint takes in a request with a list of ingredients and returns the top 5 recommended recipes (along with URLs to the recipe webpage).
+
+I also created and deployed a more user-freindly app using **Streamlit**, which can be accessed [here](https://share.streamlit.io/jackmleitch/whatscooking-deployment/streamlit.py). 
+
+<p align="center">
+<img src="./input/flowchart.png" width="700" height="477">
+</p>
