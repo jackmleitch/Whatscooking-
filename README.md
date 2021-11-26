@@ -18,7 +18,7 @@ Cooking is a hobby for some and a major problem for others. However, you can alw
 docker pull jackmleitch/whatscooking:API
 docker run -p 5000:5000 -d whatscooking:api
 ```
-## Project write-up
+## Project Write-Up
 I have three blogs on this project and they can be found here:
 * [Data gatherting](https://medium.com/r?url=https%3A%2F%2Fjackmleitch.medium.com%2Fusing-beautifulsoup-to-help-make-beautiful-soups-d2670a1d1d52)
 * [Initital Model](https://towardsdatascience.com/building-a-recipe-recommendation-api-using-scikit-learn-nltk-docker-flask-and-heroku-bfc6c4bdd2d4)
