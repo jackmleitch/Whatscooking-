@@ -94,15 +94,19 @@ def main():
     with st.sidebar.beta_expander("How it works?", expanded=True):
         st.markdown("## How it works? :thought_balloon:")
         st.write(
-            "For an in depth overview of the ML methods used and how I created this app, two blog posts are below."
+            "For an in depth overview of the ML methods used and how I created this app, three blog posts are below."
         )
         blog1 = "https://jackmleitch.medium.com/using-beautifulsoup-to-help-make-beautiful-soups-d2670a1d1d52"
         blog2 = "https://towardsdatascience.com/building-a-recipe-recommendation-api-using-scikit-learn-nltk-docker-flask-and-heroku-bfc6c4bdd2d4"
+        blog3 = "https://towardsdatascience.com/building-a-recipe-recommendation-system-297c229dda7b"
         st.markdown(
-            f"1. [Web Scraping Cooking Data With Beautiful Soup](upload:{blog1})"
+            f"1. [Web Scraping Cooking Data With Beautiful Soup]({blog1})"
         )
         st.markdown(
-            f"2. [Building a Recipe Recommendation API using Scikit-Learn, NLTK, Docker, Flask, and Heroku](upload:{blog2})"
+            f"2. [Building a Recipe Recommendation API using Scikit-Learn, NLTK, Docker, Flask, and Heroku]({blog2})"
+        )
+        st.markdown(
+            f"3. [Building a Recipe Recommendation System Using Word2Vec, Scikit-Learn, and Streamlit]({blog3})"
         )
 
 
