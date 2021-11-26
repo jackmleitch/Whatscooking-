@@ -57,5 +57,5 @@ In this step, I built a **Flask API** endpoint that was hosted on a local webser
 I also created and deployed a more user-freindly app using **Streamlit**, which can be accessed [here](https://share.streamlit.io/jackmleitch/whatscooking-deployment/streamlit.py). 
 
 <p align="center">
-<img src="./input/flowchart.png" width="700" height="477">
+<img src="./input/streamlit-app.png" width="700" height="477">
 </p>
