@@ -62,6 +62,6 @@ Unidecode==1.1.1
 urllib3==1.25.10
 w3lib==1.22.0
 webencodings==0.5.1
-Werkzeug==1.0.1
+Werkzeug==2.2.3
 widgetsnbextension==3.5.1
 gunicorn==20.0.4
